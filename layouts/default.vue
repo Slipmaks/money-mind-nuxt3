@@ -2,11 +2,24 @@
   <div>
     <header>
       <nav>
-        <UContainer>
-          <NuxtLink to="/">Главная</NuxtLink> |
-          <NuxtLink to="/dashboard">Управление</NuxtLink> |
-          <NuxtLink to="/auth" v-if="!isUserLoggedIn">Авторизация</NuxtLink>
-          <NuxtLink to="/auth" v-else @click="logOut">Выйти</NuxtLink>
+        <UContainer class="flex justify-between items-center">
+          <div>
+            <NuxtLink to="/">{{ $t("links.home") }}</NuxtLink> |
+            <NuxtLink to="/dashboard">{{ $t("links.dashboard") }}</NuxtLink> |
+            <NuxtLink to="/auth" v-if="!isUserLoggedIn">{{
+              $t("links.auth")
+            }}</NuxtLink>
+            <NuxtLink to="/auth" v-else @click="logOut">{{
+              $t("links.logout")
+            }}</NuxtLink>
+          </div>
+          <div>
+            <USelectMenu
+              v-model:model-value="currentLocale"
+              @change="changeLocale"
+              :options="['ua', 'en']"
+            />
+          </div>
         </UContainer>
       </nav>
     </header>
@@ -20,7 +33,9 @@
 
 <script setup>
 const isUserLoggedIn = ref(false),
-  userStore = useMyUserStore();
+  userStore = useMyUserStore(),
+  { setLocale, locale } = useI18n(),
+  currentLocale = ref(locale.value);
 
 onMounted(() => {
   isUserLoggedIn.value = !!localStorage.getItem("token");
@@ -31,10 +46,13 @@ onBeforeUpdate(() => {
 });
 
 const logOut = () => {
-  localStorage.removeItem("token");
-  isUserLoggedIn.value = false;
-  navigateTo("/auth");
-};
+    localStorage.removeItem("token");
+    isUserLoggedIn.value = false;
+    navigateTo("/auth");
+  },
+  changeLocale = (localeName) => {
+    setLocale(localeName);
+  };
 </script>
 
 <style scoped>

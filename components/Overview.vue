@@ -1,16 +1,20 @@
 <template>
   <div>
-    <h2>Ваш баланс</h2>
-    <p>Доходы: {{ income }}</p>
-    <p>Расходы: {{ expenses }}</p>
-    <p>Баланс: {{ balance }}</p>
+    <h2>{{ $t("components.overview") }}</h2>
+    <p>{{ $t("components.income") }}: {{ income }}</p>
+    <p>{{ $t("components.expenses") }}: {{ expenses }}</p>
+    <p>{{ $t("components.balance") }}: {{ balance }}</p>
   </div>
 
   <div class="max-h-[340px] mb-8">
     <Doughnut
       id="donut-chart"
       :data="{
-        labels: ['Income', 'Expenses', 'Balance'],
+        labels: [
+          $t('components.income'),
+          $t('components.expenses'),
+          $t('components.balance'),
+        ],
         datasets: [
           {
             data: [income, expenses, balance],
@@ -68,9 +72,6 @@ const { income = 0, expenses = 0 } = defineProps<{
   expenses?: number;
 }>();
 
-const balance = computed(() => income - expenses),
-  chartData = useTemplateRef("chartdiv");
-
-onUpdated(() => {});
+const balance = computed(() => income - expenses);
 </script>
 <style scoped></style>

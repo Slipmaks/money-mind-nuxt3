@@ -1,10 +1,11 @@
 <template>
   <div>
     <h1 class="text-2xl">
-      <span class="font-semibold">BudgetMaster</span> Dashboard
+      <span class="font-semibold"> {{ $t("pages.home.logoName") }}</span>
+      {{ $t("pages.home.header") }}
     </h1>
     <UDivider class="mt-4 mb-8" />
-    <p>Привет, {{ user?.email }}!</p>
+    <p>{{ $t("pages.home.hi", { name: user?.email }) }}</p>
     <ClientOnly>
       <Overview :income :expenses />
     </ClientOnly>

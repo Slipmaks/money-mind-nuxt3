@@ -1,24 +1,37 @@
 <template>
   <div>
-    <h1>Управление доходами и расходами</h1>
+    <h1>{{ $t("pages.dashboard.header") }}</h1>
+    <p>{{ $t("pages.dashboard.description") }}</p>
     <UDivider class="mt-4 mb-8" />
     <form
       @submit.prevent="addTransactionHandler"
       class="flex space-x-4 items-center mb-4"
     >
-      <UInput v-model="amount" type="number" placeholder="Сумма" required />
+      <UInput
+        v-model="amount"
+        type="number"
+        :placeholder="$t('pages.dashboard.sumPlace')"
+        required
+      />
       <UInput
         v-model="description"
         type="text"
-        placeholder="Описание"
+        :placeholder="$t('pages.dashboard.descPlace')"
         required
       />
 
-      <URadioGroup v-model="type" :options="['income', 'expense']" required />
-      <UButton type="submit">Добавить транзакцию</UButton>
+      <URadioGroup
+        v-model="type"
+        :options="[
+          { label: $t('pages.dashboard.income'), value: 'income' },
+          { label: $t('pages.dashboard.expense'), value: 'expense' },
+        ]"
+        required
+      />
+      <UButton type="submit">{{ $t("pages.dashboard.add") }}</UButton>
     </form>
 
-    <h2>Транзакции</h2>
+    <h2 class="text-xl">{{ $t("pages.dashboard.transactions") }}</h2>
     <UTable
       :loading="loading"
       :rows="transactions"
@@ -32,7 +45,10 @@
       </template> -->
 
       <template #actions-data="{ row }">
-        <UTooltip text="Удалить" :popper="{ placement: 'right' }">
+        <UTooltip
+          :text="$t('pages.dashboard.delete')"
+          :popper="{ placement: 'right' }"
+        >
           <UButton
             color="gray"
             variant="ghost"
@@ -55,24 +71,25 @@ const amount = ref(),
   type = ref("income"),
   description = ref(""),
   loading = ref(false),
+  { t } = useI18n(),
   columns = [
     {
       key: "type",
-      label: "Тип",
+      label: t("pages.dashboard.table.type"),
       sortable: true,
     },
     {
       key: "amount",
-      label: "Сумма",
+      label: t("pages.dashboard.table.amount"),
       sortable: true,
     },
     {
       key: "description",
-      label: "Описание",
+      label: t("pages.dashboard.table.description"),
     },
     {
       key: "date",
-      label: "Дата и время",
+      label: t("pages.dashboard.table.date"),
       sortable: true,
     },
     {
