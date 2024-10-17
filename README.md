@@ -1,9 +1,13 @@
-# BudgetMaster
+# <center> :moneybag:BudgetMaster:dollar: </center>
 
-Manage your budget! :moneybag:
+<a href="https://nuxt.com"><img src="https://img.shields.io/badge/Nuxt%20Docs-18181B?logo=nuxt.js" alt="Website"></a>
+<a href="https://vuejs.org/"><img src="https://img.shields.io/badge/Vue.js-4FC08D?logo=vuedotjs&logoColor=fff" alt="Website"></a>
+<a href="https://zod.dev/"><img src="https://img.shields.io/badge/-Zod-3E67B1?style=flat&logo=zod&logoColor=white" alt="Website"></a>
+<a href="https://www.mongodb.com/"><img src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?logo=mongodb&logoColor=white" alt="Website"></a>
 
+## Manage your budget!:chart:
 
-## Setup
+### Setup:rocket:
 
 Make sure to install the dependencies:
 
@@ -12,7 +16,7 @@ Make sure to install the dependencies:
 npm install
 ```
 
-## Development Server
+### Development Server:artificial_satellite:
 
 Start the development server on `http://localhost:3000`:
 
@@ -21,7 +25,7 @@ Start the development server on `http://localhost:3000`:
 npm run dev
 ```
 
-## Production
+### Production:flying_saucer:
 
 Build the application for production:
 
@@ -29,3 +33,6 @@ Build the application for production:
 # npm
 npm run build
 ```
+
+[license_badge]: https://img.shields.io/badge/license-MIT-blue.svg
+[license_link]: https://opensource.org/licenses/MIT
