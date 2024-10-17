@@ -13,4 +13,13 @@ export default defineNuxtConfig({
   i18n: {
     vueI18n: "~/translate/locales.ts",
   },
+  tailwindcss: {
+    config: {
+      theme: {
+        fontFamily: {
+          sans: ["Inter", "sans-serif"],
+        },
+      },
+    },
+  },
 });

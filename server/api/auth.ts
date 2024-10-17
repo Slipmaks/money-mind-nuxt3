@@ -11,7 +11,15 @@ export default defineEventHandler(async (event) => {
       const newUser = new User({ email, password: hashedPassword });
 
       await newUser.save();
-      return { message: "Пользователь зарегистрирован" };
+
+      const token = jwt.sign(
+        { userId: newUser._id, email: newUser.email },
+        process.env.JWT_SECRET as string,
+        {
+          expiresIn: "1h",
+        }
+      );
+      return { token };
     } catch (error: any) {
       return { error: "Ошибка при регистрации: " + error.message };
     }

@@ -1,8 +1,11 @@
 <template>
   <div>
-    <h1>{{ $t("pages.dashboard.header") }}</h1>
-    <p>{{ $t("pages.dashboard.description") }}</p>
-    <UDivider class="mt-4 mb-8" />
+    <h1 class="text-2xl">{{ $t("pages.dashboard.header") }}</h1>
+    <p class="font-extralight text-sm">{{ $t("pages.dashboard.description") }}</p>
+    <UDivider
+      class="mt-4 mb-8"
+      :ui="{ border: { base: 'border-orange-300' } }"
+    />
     <form
       @submit.prevent="addTransactionHandler"
       class="flex space-x-4 items-center mb-4"
@@ -67,6 +70,11 @@ definePageMeta({
   middleware: "auth",
 });
 
+useSeoMeta({
+  title: "BudgetMaster | Dashboard page",
+  description: "Manage your income and expenses",
+});
+
 const amount = ref(),
   type = ref("income"),
   description = ref(""),
@@ -120,5 +128,11 @@ const fetchTransactions = async () => {
     fetchTransactions();
   };
 
-onMounted(async () => await fetchTransactions());
+onMounted(async () => {
+  await fetchTransactions();
+  useSeoMeta({
+    title: t("pages.dashboard.meta.title"),
+    description: t("pages.dashboard.meta.description"),
+  });
+});
 </script>

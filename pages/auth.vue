@@ -1,22 +1,44 @@
 <template>
   <div>
-    <h1>{{ action === "signup" ? "Регистрация" : "Вход" }}</h1>
-    <UDivider class="mt-4 mb-8" />
-    <UForm :schema="schema" :state="state" class="space-y-4" @submit="onSubmit">
-      <UFormGroup label="Email" name="email">
+    <h1 class="text-2xl">
+      {{
+        action === "signup"
+          ? $t("pages.auth.header.signup")
+          : $t("pages.auth.header.login")
+      }}
+    </h1>
+    <UDivider
+      class="mt-4 mb-8"
+      :ui="{ border: { base: 'border-orange-300' } }"
+    />
+    <UForm
+      :schema="schema"
+      :state="state"
+      class="space-y-4 max-w-xs"
+      @submit="onSubmit"
+    >
+      <UFormGroup :label="$t('pages.auth.email')" name="email">
         <UInput v-model="state.email" />
       </UFormGroup>
 
-      <UFormGroup label="Password" name="password">
+      <UFormGroup :label="$t('pages.auth.password')" name="password">
         <UInput v-model="state.password" type="password" />
       </UFormGroup>
 
       <div class="flex space-x-4">
         <UButton type="submit">
-          {{ action === "signup" ? "Зарегистрироваться" : "Войти" }}
+          {{
+            action === "signup"
+              ? $t("pages.auth.signup")
+              : $t("pages.auth.login")
+          }}
         </UButton>
         <UButton @click="toggleAction">
-          {{ action === "signup" ? "Уже есть аккаунт?" : "Создать аккаунт" }}
+          {{
+            action === "signup"
+              ? $t("pages.auth.haveAccount")
+              : $t("pages.auth.createAccount")
+          }}
         </UButton>
       </div>
     </UForm>
@@ -26,6 +48,16 @@
 <script setup lang="ts">
 import { z } from "zod";
 import type { FormSubmitEvent } from "#ui/types";
+
+useSeoMeta({
+  title: "BudgetMaster | Auth",
+  description: "Auth page",
+});
+// definePageMeta({
+//   colorMode: "light",
+// });
+
+const { t } = useI18n();
 
 const schema = z.object({
   email: z.string().email("Invalid email"),
@@ -42,7 +74,6 @@ const state = reactive({
 const action = ref("signup");
 
 async function onSubmit(event: FormSubmitEvent<Schema>) {
-  console.log(event.data);
   const { data, error } = await useFetch("/api/auth", {
     method: "POST",
     body: {
@@ -68,4 +99,11 @@ async function onSubmit(event: FormSubmitEvent<Schema>) {
 const toggleAction = () => {
   action.value = action.value === "signup" ? "login" : "signup";
 };
+
+onMounted(() => {
+  useSeoMeta({
+    title: t("pages.auth.meta.title"),
+    description: t("pages.auth.meta.description"),
+  });
+});
 </script>

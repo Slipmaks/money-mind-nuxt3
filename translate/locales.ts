@@ -5,12 +5,32 @@ export default defineI18nConfig(() => ({
   messages: {
     ua: {
       pages: {
-        auth: {},
+        auth: {
+          header: {
+            signup: "Реєстрація",
+            login: "Вхід",
+          },
+          password: "Пароль",
+          email: "Email",
+          signup: "Зареєструватися",
+          login: "Увійти",
+          haveAccount: "Вже є аккаунт?",
+          createAccount: "Створити аккаунт",
+          meta: {
+            title: "BudgetMaster {'|'} Авторизація",
+            description: "Авторизаційна сторінка",
+          },
+        },
         home: {
           logoName: "BudgetMaster",
           header: "Панель",
           hi: "Привіт, {name}!",
           balance: "Баланс: {balance}",
+          meta: {
+            title: "BudgetMaster {'|'} Головна",
+            description: "Головна сторінка BudgetMaster",
+          },
+          noTransactions: "Додайте транзакції на сторінці",
         },
         dashboard: {
           header: "Керування доходами та витражами",
@@ -27,6 +47,10 @@ export default defineI18nConfig(() => ({
             amount: "Сума",
             description: "Опис",
             date: "Дата та час",
+          },
+          meta: {
+            title: "BudgetMaster {'|'} Управління коштами",
+            description: "Управляй своїми коштами",
           },
         },
       },
@@ -45,12 +69,32 @@ export default defineI18nConfig(() => ({
     },
     en: {
       pages: {
-        auth: {},
+        auth: {
+          header: {
+            signup: "Sign up",
+            login: "Login",
+          },
+          password: "Password",
+          email: "Email",
+          signup: "Sign up",
+          login: "Login",
+          haveAccount: "Already have an account?",
+          createAccount: "Create an account",
+          meta: {
+            title: "BudgetMaster {'|'} Auth",
+            description: "Auth page",
+          },
+        },
         home: {
           logoName: "BudgetMaster",
           header: "Dashboard",
           hi: "Hi, {name}!",
           balance: "Balance: {balance}",
+          meta: {
+            title: "BudgetMaster {'|'} Main page",
+            description: "Main page of BudgetMaster",
+          },
+          noTransactions: "Add transactions on the",
         },
         dashboard: {
           header: "Manage income and expenses",
@@ -67,6 +111,10 @@ export default defineI18nConfig(() => ({
             amount: "Amount",
             description: "Description",
             date: "Date and time",
+          },
+          meta: {
+            title: "BudgetMaster {'|'} Dashboard page",
+            description: "Manage your income and expenses",
           },
         },
       },
