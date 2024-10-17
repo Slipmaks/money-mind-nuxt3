@@ -1,4 +1,4 @@
-# <center> :moneybag:BudgetMaster:dollar: </center>
+# <center> :moneybag: BudgetMaster :dollar: </center>
 
 <a href="https://nuxt.com"><img src="https://img.shields.io/badge/Nuxt%20Docs-18181B?logo=nuxt.js" alt="Website"></a>
 <a href="https://vuejs.org/"><img src="https://img.shields.io/badge/Vue.js-4FC08D?logo=vuedotjs&logoColor=fff" alt="Website"></a>
@@ -7,7 +7,7 @@
 
 ## Manage your budget! :chart:
 
-### Setup:rocket:
+### Setup :rocket:
 
 Make sure to install the dependencies:
 
@@ -16,7 +16,7 @@ Make sure to install the dependencies:
 npm install
 ```
 
-### Development Server:artificial_satellite:
+### Development Server :artificial_satellite:
 
 Start the development server on `http://localhost:3000`:
 
@@ -25,7 +25,7 @@ Start the development server on `http://localhost:3000`:
 npm run dev
 ```
 
-### Production:flying_saucer:
+### Production :flying_saucer:
 
 Build the application for production:
 
