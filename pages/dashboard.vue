@@ -1,7 +1,9 @@
 <template>
   <div>
-    <h1 class="text-2xl">{{ $t("pages.dashboard.header") }}</h1>
-    <p class="font-extralight text-sm">{{ $t("pages.dashboard.description") }}</p>
+    <h1 class="text-2xl mb-2">{{ $t("pages.dashboard.header") }}</h1>
+    <p class="font-thin text-sm">
+      {{ $t("pages.dashboard.description") }}
+    </p>
     <UDivider
       class="mt-4 mb-8"
       :ui="{ border: { base: 'border-orange-300' } }"
