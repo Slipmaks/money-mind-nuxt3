@@ -5,7 +5,7 @@
 <a href="https://zod.dev/"><img src="https://img.shields.io/badge/-Zod-3E67B1?style=flat&logo=zod&logoColor=white" alt="Website"></a>
 <a href="https://www.mongodb.com/"><img src="https://img.shields.io/badge/MongoDB-%234ea94b.svg?logo=mongodb&logoColor=white" alt="Website"></a>
 
-## Manage your budget!:chart:
+## Manage your budget! :chart:
 
 ### Setup:rocket:
 
